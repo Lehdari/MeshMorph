@@ -12,10 +12,6 @@ set(CMAKE_ARCHIVE_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR})
 set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR})
 
 
-# Add absolute path to resource directory
-add_definitions(-DRES_PATH="${CMAKE_CURRENT_LIST_DIR}/res/")
-
-
 # Add subdirectories
 add_subdirectory(include)
 add_subdirectory(src)
@@ -23,6 +19,10 @@ add_subdirectory(ext)
 
 
 add_executable(MeshMorph ${MESHMORPH_SOURCES})
+
+target_compile_definitions(MeshMorph
+    PUBLIC
+        -DGRAPHICSUTILS_RES_PATH="${CMAKE_CURRENT_LIST_DIR}/ext/GraphicsUtils/res/")
 
 target_link_libraries(MeshMorph
     PUBLIC
