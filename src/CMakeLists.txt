@@ -1,0 +1,6 @@
+file(GLOB SUB_SOURCES "*.cpp")
+
+set(MESHMORPH_SOURCES
+        ${MESHMORPH_SOURCES}
+        ${SUB_SOURCES}
+        PARENT_SCOPE)
